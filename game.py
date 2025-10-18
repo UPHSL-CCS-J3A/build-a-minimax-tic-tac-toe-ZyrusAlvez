@@ -2,6 +2,7 @@ from game_rules import terminal, moves, winner
 from utility import utility
 from board import print_board
 from minimax import minimax
+from alphabeta import alphabeta
 
 def play_game():
     board = [' '] * 9
@@ -28,7 +29,7 @@ def play_game():
         else:
             # AI move
             print("AI is thinking...")
-            _, m = minimax(board, player=ai, me=ai, opp=human)
+            _, m = alphabeta(board, player=ai, me=ai, opp=human)
             board[m] = ai
             print(f"AI chose position {m+1}")
 
